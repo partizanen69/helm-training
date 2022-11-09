@@ -1,0 +1,80 @@
+---
+# Source: charts/api/templates/entities.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: httpd
+  template:
+    metadata:
+      labels:
+        name: httpd
+    spec:
+      containers:
+        - name: api-container
+          image: busybox:1.36.0
+          workingDir: /usr/src/platform/packages/api
+---
+# Source: charts/db/templates/entities.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: httpd
+  template:
+    metadata:
+      labels:
+        name: httpd
+    spec:
+      containers:
+        - name: db-container
+          image: busybox:1.35.0
+          workingDir: /usr/src/platform/packages/db
+---
+# Source: charts/google_dcm/templates/entities.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: google-dcm
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: httpd
+  template:
+    metadata:
+      labels:
+        name: httpd
+    spec:
+      containers:
+        - name: google-dcm-container
+          image: busybox:1.37.0
+          workingDir: /usr/src/platform/packages/google-dcm
+---
+# Source: charts/ui/templates/entities.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ui
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: httpd
+  template:
+    metadata:
+      labels:
+        name: httpd
+    spec:
+      containers:
+        - name: ui-container
+          image: busybox:1.37.0
+          workingDir: /usr/src/platform/packages/ui

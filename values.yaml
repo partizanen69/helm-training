@@ -1,0 +1,15 @@
+# Default values for ..
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+api:
+  enabled: true
+
+ui:
+  enabled: true
+
+google_dcm:
+  enabled: true
+
+db:
+  enabled: true

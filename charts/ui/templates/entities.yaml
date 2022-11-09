@@ -1,0 +1,3 @@
+{{- $_ := set . "object" (default dict .Values) }}
+{{- $_ := set . "workdir" (printf "/usr/src/platform/packages/%s" .object.name) }}
+{{- template "deployment" .}}
